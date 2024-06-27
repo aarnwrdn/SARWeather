@@ -181,7 +181,7 @@ def get_data(data):
     # Filter data to the latest 1 week or a maximum of 3 x 3600 data points
     # max_weeks = 1
     max_days = 1
-    max_data_points = 3 * 60 * 60 /20 #3 hours kirim tiap 20 detik
+    max_data_points = 3 * 60 * 60 /10 #3 hours kirim tiap 10 detik
 
     max_date = df['TimeStamp'].max()
     min_date_days = max_date - timedelta(days=max_days)
@@ -320,7 +320,7 @@ def processing_prediction(data):
 
     data_list = []
     for i in range(8):
-        hour_data = {"timestamp": (current_time + timedelta(hours=i + 1)).strftime('%a, %d %b %Y %H:%M:%S')}
+        hour_data = {"timestamp": (current_time + timedelta(hours=i + 8)).strftime('%a, %d %b %Y %H:%M:%S')}
         for j, feature in enumerate(features_col):
             hour_data[feature] = round(float(mean_array_reshaped[i, j]), 4)
             if feature == "RAINFALL":

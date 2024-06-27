@@ -227,6 +227,8 @@ h6 {
   border: none;
   border-radius: 5px;
   box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
+  width: 100%; /* Menambahkan lebar card */
+  /*margin: 10px auto;*/ /* Menambahkan margin agar card berada di tengah */
 }
 
 .card-header,
@@ -239,7 +241,7 @@ h6 {
 
 .card-title {
   padding: 20px 0 15px 0;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
   color: #012970;
   font-family: "Poppins", sans-serif;
