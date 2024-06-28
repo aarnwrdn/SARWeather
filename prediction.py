@@ -180,27 +180,27 @@ def get_data(data):
 
     # Filter data to the latest 1 week or a maximum of 3 x 3600 data points
     # max_weeks = 1
-    max_days = 1
-    max_data_points = 3 * 60 * 60 /10 #3 hours kirim tiap 10 detik
+    max_weeks = 1
+    max_data_points = 3 * 60 * 60 /5 #3 hours kirim tiap 10 detik
 
     max_date = df['TimeStamp'].max()
-    min_date_days = max_date - timedelta(days=max_days)
+    min_date_week = max_date - timedelta(days=max_weeks)
 
     # Filter data to the current week/days
-    df_days = df[df['TimeStamp'] >= min_date_days]
-    df_days = df_days.sort_values(by='TimeStamp', ascending=False)
+    df_week = df[df['TimeStamp'] >= min_date_week]
+    df_week = df_week.sort_values(by='TimeStamp', ascending=False)
 
     # Calculate the number of data points within the current week
-    num_data_points_days = len(df_days)
+    num_data_points_weeks = len(df_week)
 
-    if num_data_points_days > max_data_points:
+    if num_data_points_weeks > max_data_points:
         # If the number of data points within the current week exceeds the maximum allowed,
         # limit the data to the maximum number of data points
-        df = df_days.iloc[:max_data_points]
+        df = df_week.iloc[:max_data_points]
     else:
         # If the number of data points within the current week is within the maximum allowed,
         # include all data points within the current week
-        df = df_days
+        df = df_week
     
     df = df.reset_index(drop=True)
     
