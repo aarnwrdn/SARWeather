@@ -320,7 +320,7 @@ def processing_prediction(data):
 
     data_list = []
     for i in range(8):
-        hour_data = {"timestamp": (current_time + timedelta(hours=i + 8)).strftime('%a, %d %b %Y %H:%M:%S')}
+        hour_data = {"timestamp": (current_time + timedelta(hours=i + 1)).strftime('%a, %d %b %Y %H:%M:%S')}
         for j, feature in enumerate(features_col):
             hour_data[feature] = round(float(mean_array_reshaped[i, j]), 4)
             if feature == "RAINFALL":

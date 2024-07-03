@@ -1,6 +1,6 @@
 $(document).ready(function () {
-    const delayPrediction = 60 * 60 * 1000 // 60 * 60 * 1000 ms (1 hour)
-    const delayMonitoring = 20 * 1000 // 20 * 1000 ms (20 seconds)
+    const delayPrediction = 2 * 60 * 1000 // 60 * 60 * 1000 ms (1 hour)
+    const delayMonitoring = 10 * 1000 // 20 * 1000 ms (20 seconds)
     const delayHistory = 60 * 60 * 1000 // 60 * 60 * 1000 ms (1 hour)
 
     const tablePrediction = document.getElementById('table-prediction')
